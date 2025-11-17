@@ -27,7 +27,7 @@ def func1(L: list):
     L[0] = 111
 
 print(func1(L1), L1) # copy by reference
-print(func1(L2[:]), L2) # copy by address
+print(func1(L2[:]), L2) # copy by value
 # None [111, 2, 3] 
 # None [5, 10, 15]    
 
