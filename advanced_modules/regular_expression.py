@@ -76,3 +76,50 @@ ma*n => mn      : 1
 '''
 # ['saat']
 
+print(re.findall("sa+t", str)) # * checks if a character is there 1 or more times
+'''
+ma*n => mn      : No
+        man     : 1
+        maaan   : 1
+        main    : No
+'''
+# ['saat']
+
+print(re.findall("a{2}", str)) # {} number of characters
+# ['aa']
+print(re.findall("[0-9]{2}", str))
+# [40']
+'''
+ AL{2}          : after A at least 2 L
+ AL{2,3}        : after A at least 2 and at most 3 L
+ [0-9]{2,4}     : number of decimals are between 2 and 4
+'''
+
+print(re.findall("a|b", str)) # a or b
+# ['a', 'a', 'a', 'b', 'a', 'a']
+
+print(re.findall("(a|b|c)xyz", "axyz")) # grouping
+# ['a']
+print(re.findall("(a|b|c)xyz", "kxyz")) # grouping
+# []
+
+################# special characters ###########################
+
+print(re.findall("ka\$ar", "deneme ka$ar"))
+# ['ka$ar]
+
+print(re.findall("\Ac", "cxy deneme xxx")) # \A : the string starts with char
+# ['c']
+
+print(re.findall("x\Z", "cxy deneme xxx")) # \Z : the string ends with char
+# ['x']
+
+### word boundary anchors
+print(re.findall(r"\bc", "cxy cennet xxx")) # \b : at the edge of the word
+# ['c', 'c']
+print(re.findall(r"t\b", "cxy cennet xxx"))
+# ['t']
+
+print(re.findall(r"jan\B", "cxy ajanx jan")) # \B : inside the word        
+# ['jan' ]
+
